@@ -260,6 +260,7 @@ class Swift_Transport_StreamBuffer extends Swift_ByteStream_AbstractFilterableIn
         if (!empty($this->_params['sourceIp'])) {
             $options['socket']['bindto'] = $this->_params['sourceIp'].':0';
         }
+        //hack php5.6 ssl verified by default
         $options['ssl']['verify_peer'] = false;
         $options['ssl']['verify_peer_name'] = false;
         if (isset($this->_params['stream_context_options'])) {
